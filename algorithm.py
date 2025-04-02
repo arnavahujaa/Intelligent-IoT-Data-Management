@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def detect_outlier_streams(df, streams, start_date, end_date, threshold=None):
+def correlation_based(df, streams, start_date, end_date, threshold=None):
     """
     Analyze streams to detect outliers based on the correlation between the streams.
 
@@ -52,13 +52,6 @@ def detect_outlier_streams(df, streams, start_date, end_date, threshold=None):
     print("\nOutlier threshold:", threshold)
     print("\nSuspected outlier streams:")
     print(outlier_streams)
-
-    # Plot the heatmap of the correlation matrix
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", square=True, linewidths=0.5)
-    plt.title("Correlation Heatmap between Streams")
-    plt.tight_layout()
-    plt.show()
 
     # Return the results as a dictionary
     results = {stream: {"avg_corr": avg_corr_series[stream], "is_outlier": avg_corr_series[stream] < threshold}
