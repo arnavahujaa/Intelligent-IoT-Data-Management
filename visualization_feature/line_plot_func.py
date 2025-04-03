@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import math
+from matplotlib.dates import DateFormatter, AutoDateLocator
 
 def line_plot(df, streams=None, start_time=None, end_time=None, normalise=False):
     """
@@ -36,8 +37,12 @@ def line_plot(df, streams=None, start_time=None, end_time=None, normalise=False)
         axes[i].set_title(f"Stream: {col}")
         axes[i].set_xlabel("Time")
         axes[i].set_ylabel("Value")
-        for tick in axes[i].get_xticklabels():
-            tick.set_rotation(45)  # Fix rotation issue
+        
+        # Set date format and ticks on the x-axis
+        axes[i].xaxis.set_major_locator(AutoDateLocator())  # Automatically choose the best ticks
+        axes[i].xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))  # Format the date
+        axes[i].tick_params(axis='x', rotation=45)  # Rotate date labels
+        
         axes[i].legend()
         axes[i].grid()
     
