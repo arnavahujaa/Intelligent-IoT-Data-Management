@@ -15,6 +15,8 @@ def grouped_bar_chart(df, category_col, value_cols):
     category_col (str): Column representing categories (e.g., time, labels).
     value_cols (list): List of numerical columns to group in bars.
     """
+    if category_col in df.index.names:
+        df.reset_index(inplace=True)
     categories = df[category_col].astype(str).tolist()
     values = {col: df[col].tolist() for col in value_cols}
     
