@@ -27,8 +27,8 @@ def grouped_bar_chart(df, streams, start_date, end_date):
     None
         Displays the grouped bar chart.
     """
-    # Convert 'created_at' to datetime if not already
-    df['created_at'] = pd.to_datetime(df['created_at'])
+    # Convert 'created_at' to datetime and remove timezone to make it naive
+    df['created_at'] = pd.to_datetime(df['created_at']).dt.tz_localize(None)
 
     # Filter the DataFrame based on the provided date range
     mask = (df['created_at'] >= pd.to_datetime(start_date)) & (df['created_at'] <= pd.to_datetime(end_date))
