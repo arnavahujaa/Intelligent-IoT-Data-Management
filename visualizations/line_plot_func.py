@@ -39,12 +39,4 @@ def line_plot(df, streams=None, start_time=None, end_time=None, normalise=False)
         axes[i].set_ylabel("Value")
         
         # Set date format and ticks on the x-axis
-        axes[i].xaxis.set_major_locator(AutoDateLocator())  # Automatically choose the best ticks
-        axes[i].xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))  # Format the date
-        axes[i].tick_params(axis='x', rotation=45)  # Rotate date labels
-        
-        axes[i].legend()
-        axes[i].grid()
-    
-    plt.tight_layout()
-    plt.show()
+        axes[i].xaxis.set_major_locator(AutoDateLocator())  # Automaticall
