@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import math
 
-def boxplot(df, streams=None):
+def box_plot(df, streams=None):
     """
     Create boxplots for selected data streams with automatic subfigure arrangement.
     
@@ -29,4 +29,4 @@ def boxplot(df, streams=None):
         axes[i].grid()
     
     plt.tight_layout()
-    plt.show()
+    plt.show(
