@@ -70,7 +70,7 @@ def export_to_json(df, filename="processed_data.json"):
 
 # Testing the function directly
 if __name__ == "__main__":
-    file_path = "../datasets/Sensors_data.csv"  # Replace with any dataset
+    file_path = "../datasets/swanHill_weather_10000_data.csv"  # Replace with any dataset
     df = get_time_series(file_path)
 
     if df is not None:
@@ -78,7 +78,7 @@ if __name__ == "__main__":
         print(df.head())
 
         # Optional: export to JSON if needed
-        # export_to_json(df)
+        export_to_json(df)
 
     else:
         print("❌ Failed to process the dataset.")
